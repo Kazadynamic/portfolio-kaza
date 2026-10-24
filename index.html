@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KAZA PORTFOLIO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="progress"></div>
+
+    <div id="loader">
+      <div class="loader-box">
+        <div class="loader-title">KAZA</div>
+        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+        <div class="loader-text" id="loaderText">BOOTING...</div>
+      </div>
+    </div>
+
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <canvas id="stars"></canvas>
+
+    <div id="cursor"></div>
+
+    <header class="hud">
+      <div class="hud-left">
+        <span class="logo">KAZA</span>
+      </div>
+      <nav class="hud-nav">
+        <a href="#hero" data-sfx="blip">START</a>
+        <a href="#about" data-sfx="blip">ABOUT</a>
+        <a href="#skills" data-sfx="blip">STATS</a>
+        <a href="#projects" data-sfx="blip">PROJECTS</a>
+        <a href="#contact" data-sfx="blip">CONTACT</a>
+      </nav>
+      <div class="hud-right">
+        <button id="soundToggle" class="sound-btn" data-sfx="blip">🔊</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="panel hero">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <h1 class="title">KAZA</h1>
+            <p class="subtitle" id="typed"></p>
+            <div class="hero-btns">
+              <a class="btn primary" href="#projects" data-sfx="select">▶ VIEW PROJECTS</a>
+              <a class="btn" href="#contact" data-sfx="select">✉ SEND MSG</a>
+            </div>
+            <div class="hero-meta">
+              <span>CLASS <b>CREATOR</b></span>
+              <span>REGION <b>ID</b></span>
+              <span>CITY <b>JAKARTA</b></span>
+            </div>
+          </div>
+          <div class="hero-right">
+            <div class="avatar-frame">
+              <canvas id="avatar" width="160" height="160"></canvas>
+              <div class="avatar-glow"></div>
+            </div>
+            <div class="dialogue">
+              <div class="dialogue-name">KAZA</div>
+              <div class="dialogue-text" id="dialogue">"Halo! Selamat datang di portfolio ku. Ayo jelajahi!"</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="panel">
+        <h2 class="section-title">▶ ABOUT ME</h2>
+        <div class="about-grid">
+          <div class="card">
+            <h3>WHO AM I</h3>
+            <p>Seorang developer yang suka membangun pengalaman digital. Dari web app sampai game kecil, aku suka ngoprek, eksperimen, dan bikin hal yang bikin orang bilang "wow".</p>
+            <p>Portofolio ini adalah dunia kecilku. Jelajahi project-project di bawah, dan hubungi aku kalau mau kolaborasi.</p>
+          </div>
+          <div class="card stats">
+            <h3>CHARACTER SHEET</h3>
+            <ul>
+              <li><span>NAME</span><b>KAZA</b></li>
+              <li><span>CLASS</span><b>Full-Stack Dev</b></li>
+              <li><span>STATUS</span><b class="ok">AVAILABLE</b></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="panel">
+        <h2 class="section-title">▶ STATS & SKILLS</h2>
+        <div class="skills-grid" id="skillsGrid">
+          <div class="skill" data-val="92">
+            <span class="skill-name">HTML / CSS</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span class="skill-num">92</span>
+          </div>
+          <div class="skill" data-val="88">
+            <span class="skill-name">JAVASCRIPT</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span class="skill-num">88</span>
+          </div>
+          <div class="skill" data-val="80">
+            <span class="skill-name">REACT / VUE</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span class="skill-num">80</span>
+          </div>
+          <div class="skill" data-val="75">
+            <span class="skill-name">NODE / API</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span class="skill-num">75</span>
+          </div>
+          <div class="skill" data-val="70">
+            <span class="skill-name">UI / UX</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span class="skill-num">70</span>
+          </div>
+          <div class="skill" data-val="65">
+            <span class="skill-name">GAME DEV</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span class="skill-num">65</span>
+          </div>
+        </div>
+        <div class="inventory">
+          <h3>SKILL</h3>
+          <div class="items logos">
+            <div class="logo-item" data-sfx="blip" title="HTML5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" /><span>HTML</span></div>
+            <div class="logo-item" data-sfx="blip" title="CSS3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" /><span>CSS</span></div>
+            <div class="logo-item" data-sfx="blip" title="JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" /><span>JS</span></div>
+            <div class="logo-item" data-sfx="blip" title="GitHub"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" /><span>GITHUB</span></div>
+            <div class="logo-item" data-sfx="blip" title="Bootstrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /><span>BOOTSTRAP</span></div>
+            <div class="logo-item" data-sfx="blip" title="Tailwind CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" /><span>TAILWIND</span></div>
+            <div class="logo-item" data-sfx="blip" title="PHP"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /><span>PHP</span></div>
+            <div class="logo-item" data-sfx="blip" title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" /><span>JAVA</span></div>
+            <div class="logo-item" data-sfx="blip" title="MySQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /><span>MYSQL</span></div>
+            <div class="logo-item" data-sfx="blip" title="C++"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" /><span>C++</span></div>
+            <div class="logo-item" data-sfx="blip" title="Flask"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" /><span>FLASK</span></div>
+            <div class="logo-item" data-sfx="blip" title="React"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /><span>REACT</span></div>
+            <div class="logo-item" data-sfx="blip" title="Django"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" /><span>DJANGO</span></div>
+            <div class="logo-item" data-sfx="blip" title="Node.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node" /><span>NODE</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="panel">
+        <h2 class="section-title">▶ PROJECTS</h2>
+        <div class="projects-grid">
+          <article class="project" data-sfx="blip" data-title="Portfolio Engine" data-desc="Website portofolio interaktif dengan tema game 8-bit. Dibangun dengan HTML, CSS, dan JS murni." data-tags="HTML,CSS,JS">
+            <div class="proj-icon">⚔️</div>
+            <h3>PROJECT 01</h3>
+            <p class="proj-name">Portfolio Engine</p>
+            <p class="proj-desc">Website portofolio interaktif dengan tema game 8-bit. Dibangun dengan HTML, CSS, dan JS murni.</p>
+            <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+            <button class="proj-link" data-sfx="select">VIEW ▶</button>
+          </article>
+          <article class="project" data-sfx="blip" data-title="Pixel Runner" data-desc="Mini game endless runner berbasis canvas. Lompat, kumpulkan koin, hindari rintangan." data-tags="CANVAS,GAME">
+            <div class="proj-icon">🛡️</div>
+            <h3>PROJECT 02</h3>
+            <p class="proj-name">Pixel Runner</p>
+            <p class="proj-desc">Mini game endless runner berbasis canvas. Lompat, kumpulkan koin, hindari rintangan.</p>
+            <div class="proj-tags"><span>CANVAS</span><span>GAME</span></div>
+            <button class="proj-link" data-sfx="select">VIEW ▶</button>
+          </article>
+          <article class="project" data-sfx="blip" data-title="UI Lab" data-desc="Eksperimen komponen UI bergaya retro dengan animasi pixel dan efek CRT." data-tags="UI,ANIM">
+            <div class="proj-icon">🧪</div>
+            <h3>PROJECT 03</h3>
+            <p class="proj-name">UI Lab</p>
+            <p class="proj-desc">Eksperimen komponen UI bergaya retro dengan animasi pixel dan efek CRT.</p>
+            <div class="proj-tags"><span>UI</span><span>ANIM</span></div>
+            <button class="proj-link" data-sfx="select">VIEW ▶</button>
+          </article>
+          <article class="project" data-sfx="blip" data-title="API Bridge" data-desc="Wrapper API sederhana dengan rate limiting dan caching untuk data real-time." data-tags="NODE,API">
+            <div class="proj-icon">📡</div>
+            <h3>PROJECT 04</h3>
+            <p class="proj-name">API Bridge</p>
+            <p class="proj-desc">Wrapper API sederhana dengan rate limiting dan caching untuk data real-time.</p>
+            <div class="proj-tags"><span>NODE</span><span>API</span></div>
+            <button class="proj-link" data-sfx="select">VIEW ▶</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="panel">
+        <h2 class="section-title">▶ CONTACT</h2>
+        <div class="contact-grid">
+          <form id="contactForm" class="card">
+            <label>NAME<input type="text" name="name" required placeholder="PLAYER NAME" /></label>
+            <label>EMAIL<input type="email" name="email" required placeholder="player@game.com" /></label>
+            <label>MESSAGE<textarea name="msg" required placeholder="TYPE YOUR MESSAGE..."></textarea></label>
+            <button type="submit" class="btn primary" data-sfx="select">▶ SEND</button>
+            <div id="formMsg" class="form-msg"></div>
+          </form>
+          <div class="card socials">
+            <h3>SOCIAL LINKS</h3>
+            <a href="https://github.com/Kazadynamic" target="_blank" rel="noopener" data-sfx="blip">🐙 GITHUB</a>
+            <a href="mailto:leocatofficial190@gmail.com" data-sfx="blip">📧 EMAIL: leocatofficial190@gmail.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 KAZA // ALL RIGHTS RESERVED</span>
+      <span>INSERT COIN TO CONTINUE</span>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-box">
+        <button id="modalClose" class="modal-close" data-sfx="select">✕</button>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <div id="modalTags" class="proj-tags"></div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
