@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KAZA PORTFOLIO</title>
+    <title>KAZA PORTOFOLIO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
@@ -64,7 +64,7 @@
             </div>
             <div class="dialogue">
               <div class="dialogue-name">KAZA</div>
-              <div class="dialogue-text" id="dialogue">"Halo! Selamat datang di portfolio ku. Ayo jelajahi!"</div>
+              <div class="dialogue-text" id="dialogue">"Halo! Selamat datang di portofolio ku. Ayo jelajahi!"</div>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
             <h3>MYSELF</h3>
             <ul>
               <li><span>NAME</span><b>KAZA</b></li>
-              <li><span>CLASS</span><b>Full-Stack Dev</b></li>
+              <li><span>CLASS</span><b>Web Developer & IOT </b></li>
               <li><span>STATUS</span><b class="ok">AVAILABLE</b></li>
             </ul>
           </div>
@@ -159,7 +159,21 @@
 
       <section id="contact" class="panel">
         <h2 class="section-title">▶ CONTACT</h2>
-       
+        <div class="contact-grid">
+          <form id="contactForm" class="card">
+            <h3>SEND MESSAGE</h3>
+            <label>NAME
+              <input id="name" name="name" type="text" required maxlength="100" placeholder="Nama kamu" />
+            </label>
+            <label>EMAIL
+              <input id="email" name="email" type="email" placeholder="email@domain.com" />
+            </label>
+            <label>MESSAGE
+              <textarea id="message" name="message" required maxlength="2000" placeholder="Tulis pesan..."></textarea>
+            </label>
+            <button type="submit" class="btn primary" data-sfx="select">▶ SEND</button>
+            <p id="formMsg" class="subtitle" style="min-height:24px"></p>
+          </form>
           <div class="card socials">
             <h3>SOCIAL LINKS</h3>
             <a href="https://github.com/Kazadynamic" target="_blank" rel="noopener" data-sfx="blip">🐙 GITHUB</a>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Pesan Contact</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body{padding:24px}
+    .wrap{max-width:900px;margin:0 auto}
+    .row{border:2px solid var(--border);padding:12px;margin-bottom:12px;background:var(--bg2)}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:6px}
+    .msg{white-space:pre-wrap}
+    .token-box{display:flex;gap:8px;margin-bottom:16px}
+    .token-box input{flex:1}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="title" style="font-size:28px">ADMIN INBOX</h1>
+    <div class="token-box">
+      <input id="token" type="password" placeholder="ADMIN_TOKEN" />
+      <button id="load" class="btn primary">LOAD</button>
+    </div>
+    <div id="status" class="subtitle"></div>
+    <div id="list"></div>
+  </div>
+  <script>
+    const btn=document.getElementById('load');
+    const token=document.getElementById('token');
+    const list=document.getElementById('list');
+    const status=document.getElementById('status');
+    btn.addEventListener('click',async()=>{
+      status.textContent='Loading...';
+      try{
+        const r=await fetch('/api/contacts?token='+encodeURIComponent(token.value));
+        const j=await r.json();
+        if(!j.ok){ status.textContent='Error: '+j.error; return; }
+        status.textContent='Total: '+j.count;
+        list.innerHTML=j.data.map(c=>`
+          <div class="row">
+            <div class="meta">#${c.id} — ${c.name} ${c.email?'<'+c.email+'>':''} — ${c.created_at}</div>
+            <div class="msg">${escapeHtml(c.message)}</div>
+          </div>`).join('')||'<p>Belum ada pesan.</p>';
+      }catch(e){ status.textContent='Network error'; }
+    });
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+  </script>
+</body>
+</html>

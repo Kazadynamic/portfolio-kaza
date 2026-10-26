@@ -204,12 +204,23 @@ document.querySelectorAll('.hud-nav a,.item,.project,.logo-item').forEach(el=>{
 (function(){
   const form=document.getElementById('contactForm');
   const msg=document.getElementById('formMsg');
-  form.addEventListener('submit',e=>{
+  if(!form) return;
+  form.addEventListener('submit',async(e)=>{
     e.preventDefault();
     const name=form.name.value.trim();
-    msg.textContent='> MESSAGE SENT, '+name.toUpperCase()+'!';
-    form.reset();
-    setTimeout(()=>msg.textContent='',4000);
+    const email=form.email.value.trim();
+    const message=form.message.value.trim();
+    if(msg) msg.textContent='> SENDING...';
+    try{
+      const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,message})});
+      const j=await r.json();
+      if(!j.ok){ if(msg) msg.textContent='> ERROR: '+(j.error||'gagal'); return; }
+      if(msg) msg.textContent='> MESSAGE SENT, '+name.toUpperCase()+'!';
+      form.reset();
+      setTimeout(()=>{ if(msg) msg.textContent=''; },4000);
+    }catch(err){
+      if(msg) msg.textContent='> NETWORK ERROR';
+    }
   });
 })();
 
