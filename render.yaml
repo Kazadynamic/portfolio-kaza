@@ -9,7 +9,7 @@ services:
       mountPath: /var/data
       sizeGB: 1
     envVars:
-      - key: ADMIN_TOKEN
+      - key: 
         generateValue: true
       - key: DB_PATH
         value: /var/data/portfolio.db
